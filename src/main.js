@@ -5,7 +5,7 @@ const panoElement = document.getElementById("pano");
 const viewer = new Marzipano.Viewer(panoElement);
 
 // Load your panorama image
-const source = Marzipano.ImageUrlSource.fromString("/panorama.jpg");
+const source = Marzipano.ImageUrlSource.fromString("src/assets/panorama.jpg");
 const geometry = new Marzipano.EquirectGeometry([{ width: 4000 }]);
 const limiter = Marzipano.RectilinearView.limit.traditional(4000, 100 * Math.PI / 180);
 const view = new Marzipano.RectilinearView(null, limiter);
