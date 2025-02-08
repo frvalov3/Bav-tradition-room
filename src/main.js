@@ -1,33 +1,12 @@
-import Marzipano from "marzipano";
+import { createApp } from "vue";
+import App from "./App.vue";
+import router from "./router/index.js";
+import { createPinia } from "pinia";
 
-// Create the panorama viewer
-const panoElement = document.getElementById("pano");
-const viewer = new Marzipano.Viewer(panoElement);
+import "marzipano"; // Load Marzipano globally
+import "./assets/styles.css"; // Global CSS
 
-// Load your panorama image
-const source = Marzipano.ImageUrlSource.fromString("/Bav-tradition-room/panorama.jpg");
-const geometry = new Marzipano.EquirectGeometry([{ width: 4000 }]);
-const limiter = Marzipano.RectilinearView.limit.traditional(4000, 100 * Math.PI / 180);
-const view = new Marzipano.RectilinearView(null, limiter);
-
-// Create the scene
-const scene = viewer.createScene({
-  source: source,
-  geometry: geometry,
-  view: view,
-});
-
-// Display the scene
-scene.switchTo();
-
-// Add a hotspot to the panorama
-const hotspotContainer = scene.hotspotContainer(); // Use the scene object here
-const hotspotElement = document.createElement("div");
-hotspotElement.className = "hotspot";
-hotspotElement.innerHTML = `<div class="hotspot-content">MIS-BAV</div>`;
-hotspotContainer.createHotspot(hotspotElement, { yaw: 0, pitch: 0 });
-
-// Add event listener for interactivity
-hotspotElement.addEventListener("click", () => {
-  alert("Welcome to MIS of BAV!");
-});
+const app = createApp(App);
+app.use(router);
+app.use(createPinia());
+app.mount("#app");
