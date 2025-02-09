@@ -3,11 +3,11 @@
 </template>
 
 <script>
-import { useAppStore } from "../store/index.js";
+import { useGlobalStore } from "@/store/index.js";
 
 export default {
   setup() {
-    const store = useAppStore();
+    const store = useGlobalStore();
     return { store };
   }
 };

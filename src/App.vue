@@ -6,13 +6,13 @@
 </template>
 
 <script>
-import { useAppStore } from "./store/index.js";
-import BackButton from "./components/BackButton.vue";
+import { useGlobalStore } from "@/store/index.js";
+import BackButton from "@/components/BackButton.vue";
 
 export default {
   components: { BackButton },
   setup() {
-    const store = useAppStore();
+    const store = useGlobalStore();
     return { store };
   }
 };

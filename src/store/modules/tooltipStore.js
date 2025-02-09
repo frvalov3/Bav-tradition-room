@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
 
-export const useGlobalStore = defineStore("global", () => {
+export const useTooltipStore = defineStore("tooltip", () => {
   const tooltipVisible = ref(false);
   const tooltipText = ref("");
   const tooltipX = ref(0);
